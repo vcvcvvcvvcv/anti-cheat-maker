@@ -1,11 +1,26 @@
-from flask import Flask
+from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route("/")
 def home():
-    return 'Hello, World!'
+    return jsonify({
+        "status": "Spectre AI Online"
+    })
 
-@app.route('/about')
-def about():
-    return 'About'
+
+@app.route("/chat", methods=["POST"])
+def chat():
+    data = request.json
+    message = data.get("message", "")
+
+    # AI logic will go here
+    reply = (
+        "Spectre AI specializes in Gorilla Tag copy "
+        "security, anti-cheat architecture, Unity, "
+        "PlayFab, and Photon."
+    )
+
+    return jsonify({
+        "reply": reply
+    })
