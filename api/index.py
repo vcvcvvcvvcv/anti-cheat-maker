@@ -1,6 +1,3 @@
-from flask import Flask, request, jsonify
-
-app = Flask(__name__)
 "use client";
 
 import { useState } from "react";
@@ -65,29 +62,22 @@ export default function Home() {
         </button>
       </header>
 
-
       <section className="flex-1 p-5 space-y-4 overflow-y-auto">
-
         {chat.map((msg,index)=>(
           <div
             key={index}
             className={
-              msg.role==="user"
-              ?
-              "bg-purple-700 p-4 rounded-xl ml-auto max-w-xl"
-              :
-              "bg-zinc-900 p-4 rounded-xl max-w-xl"
+              msg.role === "user"
+              ? "bg-purple-700 p-4 rounded-xl ml-auto max-w-xl"
+              : "bg-zinc-900 p-4 rounded-xl max-w-xl"
             }
           >
             {msg.content}
           </div>
         ))}
-
       </section>
 
-
       <footer className="p-5 border-t border-zinc-800 flex gap-3">
-
         <input
           value={message}
           onChange={(e)=>setMessage(e.target.value)}
@@ -104,7 +94,6 @@ export default function Home() {
         >
           <Send/>
         </button>
-
       </footer>
 
     </main>
