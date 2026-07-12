@@ -9,7 +9,7 @@ PLAYFAB_TITLE_ID = os.environ.get("PLAYFAB_TITLE_ID", "YOUR_TITLE_ID")
 PLAYFAB_SECRET_KEY = os.environ.get("PLAYFAB_SECRET_KEY", "YOUR_SECRET_KEY")
 SERVER_API_KEY = os.environ.get("SERVER_API_KEY", "your_secure_api_key")
 
-# Animated HTML Splash Page Template
+# Animated HTML Splash Page Template with custom SVG Monke
 HTML_SPLASH = """
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +30,6 @@ HTML_SPLASH = """
             justify-content: center;
             align-items: center;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            /* Animated multi-color gradient background */
             background: linear-gradient(-45deg, #8a2be2, #4b0082, #1e90ff, #00ff7f);
             background-size: 400% 400%;
             animation: gradientAnimation 12s ease infinite;
@@ -45,32 +44,53 @@ HTML_SPLASH = """
         }
 
         .status-card {
-            background: rgba(0, 0, 0, 0.55);
-            padding: 40px 60px;
-            border-radius: 20px;
+            background: rgba(0, 0, 0, 0.65);
+            padding: 40px 50px;
+            border-radius: 24px;
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             text-align: center;
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* Stylized Gorilla Tag Low-Poly Inspired Monkey Wrapper */
+        .gtag-monke {
+            width: 100px;
+            height: 100px;
+            filter: drop-shadow(0 0 15px rgba(138, 43, 226, 0.8));
+            animation: floatMonke 4s ease-in-out infinite;
+        }
+
+        @keyframes floatMonke {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(3deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
         }
 
         h1 {
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 800;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            margin-bottom: 10px;
             background: linear-gradient(45deg, #00ffff, #ff00ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
 
         p {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 500;
             letter-spacing: 1px;
-            color: #e0e0e0;
+            color: #b3b3b3;
         }
 
         .pulse-dot {
@@ -79,7 +99,6 @@ HTML_SPLASH = """
             height: 12px;
             background-color: #00ff7f;
             border-radius: 50%;
-            margin-right: 8px;
             box-shadow: 0 0 15px #00ff7f;
             animation: pulse 1.5s infinite;
         }
@@ -94,6 +113,22 @@ HTML_SPLASH = """
 <body>
 
     <div class="status-card">
+        <div class="gtag-monke">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20,40 C20,20 80,20 80,40 C80,55 75,75 50,75 C25,75 20,55 20,40 Z" fill="#4a2c11"/>
+                <circle cx="18" cy="40" r="10" fill="#4a2c11"/>
+                <circle cx="18" cy="40" r="6" fill="#c39b7d"/>
+                <circle cx="82" cy="40" r="10" fill="#4a2c11"/>
+                <circle cx="82" cy="40" r="6" fill="#c39b7d"/>
+                <path d="M28,45 C28,32 45,30 50,38 C55,30 72,32 72,45 C72,58 65,68 50,68 C35,68 28,58 28,45 Z" fill="#c39b7d"/>
+                <rect x="38" y="42" width="6" height="6" rx="1" fill="#000000"/>
+                <rect x="56" y="42" width="6" height="6" rx="1" fill="#000000"/>
+                <circle cx="46" cy="54" r="2" fill="#3a200a"/>
+                <circle cx="54" cy="54" r="2" fill="#3a200a"/>
+                <path d="M42,60 Q50,64 58,60" stroke="#3a200a" stroke-width="2" stroke-linecap="round" fill="none"/>
+            </svg>
+        </div>
+
         <h1><span class="pulse-dot"></span>Backend Running</h1>
         <p>by exotic don't skid</p>
     </div>
